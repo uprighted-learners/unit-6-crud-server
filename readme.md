@@ -2,13 +2,13 @@
 
 Welcome to the Robot Factory! 
 
-In this lab we will make a program that allows us to **create**, **read**, **update**, and **delete** entries from our Mongoose database, otherwise known as *CRUD*. This will take the shape of creating a robot factory in our terminal.
+In this lab we will make a program that allows us to **create**, **read**, **update**, and **delete** entries from our Mongo database, otherwise known as *CRUD*. This will take the shape of creating a robot factory in our terminal.
 
 ## Getting Started
 
-Create a new directory named `CRUD-robot-factory` and initialize it as an npm respository. Install mongoose.
+First, `npm install` the project dependencies
 
-Next, make a new file called `CRUD.js`. Here we will configure the connection to our server by establishing a few key items:
+Next, open `CRUD.js`. Here we will configure the connection to our server by establishing a few key items:
 
  * Our Mongoose import by requiring Mongoose
  * Using the `.connect()` method, we connect to MongoDB and the server, which is `localhost:27017`, and the database, which is `/factory`
@@ -259,4 +259,4 @@ And lastly, close out the function with a `process.exit()`. If you haven't decla
 
 * Right now, the user has to input the exact id and property in order to update the robot. How could you make this more user friendly? Let the user give the name of the robot to update (instead of the id) AND let them type the property in natural language ("serial number" instead of "serialNumber").
 
-* Translate this lab to an Express server with a React front end, much like we did in the "Fetching Data" lab.
+* Translate this lab to an Express server with a HTML + JS front end, much like we did in the "Fetching Data" lab.
