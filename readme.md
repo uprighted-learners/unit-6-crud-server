@@ -1,6 +1,6 @@
 # Lab: CRUD Server!
 
-Welcome to the Robot Factory! 
+Welcome to the Robot Factory!
 
 In this lab we will make a program that allows us to **create**, **read**, **update**, and **delete** entries from our Mongo database, otherwise known as *CRUD*. This will take the shape of creating a robot factory in our terminal.
 
@@ -12,7 +12,7 @@ Next, open `CRUD.js`. Here we will configure the connection to our server by est
 
  * Our Mongoose import by requiring Mongoose
  * Using the `.connect()` method, we connect to MongoDB and the server, which is `localhost:27017`, and the database, which is `/factory`
- * Initialize a database through the connection constructor, which will be stored in a variable. 
+ * Initialize a database through the connection constructor, which will be stored in a variable.
 
 in `CRUD.js`, add:
 
@@ -42,7 +42,7 @@ function ask(questionText) {
 
 ## Start function and Schema Creation
 
-Let's create an async function to ask for user input and await the database connection. 
+Let's create an async function to ask for user input and await the database connection.
 
 A schema outlines the expected data structure that will be inserted into a *collection*. They are used to create a *model*.
 
@@ -65,13 +65,13 @@ start()
 ```
 ## Models
 
-Now that our data structure is defined by the schema, let's make some data using a model! 
+Now that our data structure is defined by the schema, let's make some data using a model!
 
 **Models** are constructors built using the schema by enforcing the data structure defined there. It creates a collection based on the provided name. Instances of models are called *documents*.
 
 Below, we define our model and set it to the variable name "Robot" by calling the mongoose method `.model()`. We pass to it the name of the collection the model is for (`'robots'`), and the schema we want the model to use (`robotSchema`).
 
-Here our model name is `Robot`. It uses the `robotSchema` from above. 
+Here our model name is `Robot`. It uses the `robotSchema` from above.
 
 ```javascript
 const Robot = mongoose.model('robots', robotSchema)
@@ -79,7 +79,7 @@ const Robot = mongoose.model('robots', robotSchema)
 
 ## User Input
 
-The idea of CRUD capabilities is to allow a user to take certain actions to manipulate entries in a collection. 
+The idea of CRUD capabilities is to allow a user to take certain actions to manipulate entries in a collection.
 
 In this instance we will handle user input by asking the user what action they want to take, passing it through an `if-else` loop, and returning the desired behavior.
 
@@ -104,8 +104,8 @@ If we want to create a new robot:
         let friend = await ask('Is this robot a friend? Enter Y or N')
 ```
 
-Some of these questions will be conditional based on the robot type. 
--  If the robot is a friend robot, the application should not ask if the robot is a killer robot, and vice versa. 
+Some of these questions will be conditional based on the robot type.
+-  If the robot is a friend robot, the application should not ask if the robot is a killer robot, and vice versa.
 - Regardless of choice, the application should then ask for the robot's serial number, and a new Date instance should be generated and assigned to the date
 -  Don't forget to set those variables outside of the loop, or else they will be lost in scope later on.
 
@@ -124,7 +124,7 @@ if (friend === 'N') {
 
 ## Storing User Input
 
-Great! We have our user input. Now we'll create a new entry with it. 
+Great! We have our user input. Now we'll create a new entry with it.
 
 Create a variable and use the `new` keyword to create a new instance of the `Robot` model. Here we've named the variable `response` as it holds the responses of the user.
 
@@ -149,9 +149,9 @@ console.log('Your robot has been created!')
 
 # (R)ead
 
-Next up, the ability to see all items in our 'robots' collection. 
+Next up, the ability to see all items in our 'robots' collection.
 
-First, verify user input within our async `start()` function. 
+First, verify user input within our async `start()` function.
 
 ```javascript
 } else if (action === 'Read') {
@@ -168,7 +168,7 @@ console.log(allRobots)
 
 Now that we've seen all of our entries, let's choose one to update!
 
-First, verify user input within our async `start()` function. 
+First, verify user input within our async `start()` function.
 ```javascript
 } else if (action === 'Update') {
 ```
@@ -204,11 +204,11 @@ await Robot.updateOne({ _id: updateTarget }, { $set: { [updateField]: update } }
 console.log('Your robot has been updated!')
 ```
 
-# (D)elete 
+# (D)elete
 
-Our last capability should be to delete an entry. 
+Our last capability should be to delete an entry.
 
-First, verify user input within our async `start()` function. 
+First, verify user input within our async `start()` function.
 ```javascript
 } else if (action === 'Delete') {
 ```
@@ -225,7 +225,7 @@ Next, using the `await ask()` function, ask the user which entry to delete, and 
 let target = await ask('what is the ID of the entry do you want to delete?   ')
 ```
 
-Now that we have the user input, let's use the `.deleteOne()` method to remove the entry in our collection. Identify the entry by passing the id number stored within the `target` variable. 
+Now that we have the user input, let's use the `.deleteOne()` method to remove the entry in our collection. Identify the entry by passing the id number stored within the `target` variable.
 
 Like our other methods, it will need to be awaited. Print a message to the user so they know the entry was deleted successfully.
 
@@ -236,7 +236,7 @@ console.log('your entry has been deleted')
 
 # Error handling and ending the program
 
-Because we are operating in an `if-else` loop that validates user input from our async `start()` function, close out the loop by adding a catch-all should the user try using an invalid command. 
+Because we are operating in an `if-else` loop that validates user input from our async `start()` function, close out the loop by adding a catch-all should the user try using an invalid command.
 
 ```javascript
  } else {
