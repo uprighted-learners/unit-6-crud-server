@@ -1,8 +1,8 @@
-# Lab: CRUD Server!
+# exercise: CRUD Server!
 
 Welcome to the Robot Factory! 
 
-In this lab we will make a program that allows us to **create**, **read**, **update**, and **delete** entries from our Mongo database, otherwise known as *CRUD*. This will take the shape of creating a robot factory in our terminal.
+In this exercise we will make a program that allows us to **create**, **read**, **update**, and **delete** entries from our Mongo database, otherwise known as *CRUD*. This will take the shape of creating a robot factory in our terminal.
 
 ## Getting Started
 
@@ -259,4 +259,4 @@ And lastly, close out the function with a `process.exit()`. If you haven't decla
 
 * Right now, the user has to input the exact id and property in order to update the robot. How could you make this more user friendly? Let the user give the name of the robot to update (instead of the id) AND let them type the property in natural language ("serial number" instead of "serialNumber").
 
-* Translate this lab to an Express server with a HTML + JS front end, much like we did in the "Fetching Data" lab.
+* Translate this exercise to an Express server with a HTML + JS front end, much like we did in the "Fetching Data" exercise.
